@@ -1,0 +1,16 @@
+<mat-card>
+  <form [formGroup]="postForm">
+    <mat-form-field>
+      <input matInput type="text" formControlName="title">
+      <mat-error *ngIf="!this.postForm.controls.title.valid">Please Enter the Title</mat-error>
+    </mat-form-field>
+    <mat-form-field>
+      <textarea matInput rows="6" formControlName="content"></textarea>
+      <mat-error *ngIf="!this.postForm.controls.content.valid">Please Enter the content</mat-error>
+    </mat-form-field>
+    <button mat-raised-button color="accent" type="submit"(click)="onAddPost()">Save Post</button>
+  </form>
+
+</mat-card>
+
+

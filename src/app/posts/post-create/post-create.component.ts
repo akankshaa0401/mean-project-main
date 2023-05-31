@@ -1,6 +1,6 @@
 import { Component, EventEmitter, Output } from '@angular/core';
-import { Post } from '../post.model';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
+import { PostsService } from '../posts.service';
 
 @Component({
   selector: 'app-post-create',
@@ -9,11 +9,10 @@ import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms'
 })
 export class PostCreateComponent {
   postForm: FormGroup
-  constructor(private fb:FormBuilder){
+  submitted=false
+  constructor(private fb:FormBuilder,public postsService:PostsService){
   }
-  enteredTitle=''
-  enteredContent=''
-  @Output() postCreated=new EventEmitter()
+
   ngOnInit(): void {
 
     this.postForm=this.fb.group({
@@ -23,12 +22,11 @@ export class PostCreateComponent {
     }
 onAddPost(){
   if(this.postForm.valid){
+    this.submitted=true
     console.log(this.postForm);
-    const post : Post={
-      title:this.postForm.value.title,
-      content:this.postForm.value.content
-    }
-    this.postCreated.emit(post)
+   this.postsService.addPost(this.postForm.value.title,this.postForm.value.content)
+   this.postForm.reset()
+   this.submitted=false
   }
 }
 }

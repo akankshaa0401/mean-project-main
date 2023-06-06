@@ -1,4 +1,5 @@
 <mat-card>
+  <mat-spinner *ngIf="this.isLoading"></mat-spinner>
   <form [formGroup]="postForm">
     <mat-form-field>
       <input matInput type="text" formControlName="title" placeholder="Post Title*">

@@ -4,6 +4,7 @@ const app=express()
 const bodyParser=require('body-parser')
 const mongoose=require('mongoose')
 const postsRoutes=require("./routes/posts")
+const userRoutes=require("./routes/user")
 
 mongoose.connect("mongodb+srv://akanksha:JLY8suy02hKxcnYg@cluster0.mzs6pwn.mongodb.net/node-angular?retryWrites=true&w=majority")
 .then(()=>{
@@ -30,5 +31,5 @@ app.use((req, res, next) => {
 });
 
 app.use("/api/posts", postsRoutes);
-
+app.use("/api/user",userRoutes)
 module.exports = app;

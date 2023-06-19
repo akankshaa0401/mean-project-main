@@ -1,36 +1,39 @@
-
 mat-form-field,
 textarea {
   width: 100%;
 }
 
-.savePost-button{
-  width:10%;
+mat-spinner {
+  margin: auto;
+}
+
+button:hover{
+  box-shadow: 0 0 0 2px #6f6579;
+  border:none;
+  transition: 0.7s;
+}
+
+.imageButton{
+  display:block;
+  margin-bottom:0.5px;
+  margin-left:2px;
+}
+
+.saveButton{
+  display:block;
+  margin:auto;
   margin-bottom:2%;
 }
-.image-button{
-  width:20%;
-  display:flex;
-  margin-left: 1%;
-}
-button:hover{
-  border:1px solid rgb(128, 125, 121);
-  box-shadow: 1px 1px 8px rgba(20, 3, 3, 0.5); 
-}
 
-mat-spinner{
-  margin:auto
-}
-
-input[type=file]{
+input[type="file"] {
   visibility: hidden;
 }
 
-.image-preview{
-  height:5 rem;
-  margin: 1 rem 0;
+.image-preview {
+  height: 5rem;
+  margin: 1rem 0;
 }
 
-.image-preview img{
-  height:100%
+.image-preview img {
+  height: 100%;
 }
